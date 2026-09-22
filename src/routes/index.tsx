@@ -182,9 +182,9 @@ function WorkshopPage() {
                 <p className="max-w-xl text-sm leading-relaxed text-background/65">The final time, platform, entry details, and compensation terms are still being confirmed.</p>
               </div>
               <div className="md:col-span-4 md:text-right">
-                <a className="group inline-flex h-13 items-center justify-center rounded-sm bg-accent px-6 text-sm font-medium uppercase tracking-[0.08em] text-accent-foreground" href="mailto:hello@louvestudio.com?subject=UX%20Design%20in%20the%20Age%20of%20AI%20Workshop">
-                  Ask about the workshop <ArrowDownRight className="ml-3 size-4 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" aria-hidden="true" />
-                </a>
+                <span className="inline-flex min-h-13 items-center justify-center rounded-sm bg-accent px-6 text-sm font-medium uppercase tracking-[0.08em] text-accent-foreground">
+                  Registration details coming soon <ArrowDownRight className="ml-3 size-4" aria-hidden="true" />
+                </span>
               </div>
             </div>
             <div className="absolute -right-10 -top-10 size-40 rotate-12 border-[20px] border-primary opacity-50" aria-hidden="true" />
