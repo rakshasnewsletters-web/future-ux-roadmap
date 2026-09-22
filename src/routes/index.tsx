@@ -92,7 +92,7 @@ function WorkshopPage() {
                   </div>
                   <div className="flex items-center gap-4 pt-5">
                     <span className="grid size-12 shrink-0 place-items-center rounded-full border border-primary-foreground/30 font-display text-sm">R</span>
-                    <div><p className="font-display text-lg font-medium">Rakshita</p><p className="text-sm opacity-70">Co-host</p></div>
+                    <div><p className="font-display text-lg font-medium">Rakshita</p></div>
                   </div>
                 </div>
               </div>
