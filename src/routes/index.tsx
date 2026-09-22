@@ -45,7 +45,7 @@ function WorkshopPage() {
       <nav aria-label="Main navigation" className="w-full pt-7 pb-4 md:pt-9">
         <div className="mx-auto flex max-w-workshop items-end justify-between px-5 md:px-8">
           <a href="#top" className="flex flex-col" aria-label="Louve Studio workshop home">
-            <span className="font-display text-xl font-semibold uppercase md:text-2xl">Louve Studio</span>
+            <span className="font-display text-xl font-semibold uppercase md:text-2xl">AI Workshop Series</span>
             <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:text-xs">Workshop Series</span>
           </a>
           <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.14em] sm:flex">
