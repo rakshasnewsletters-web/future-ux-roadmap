@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import qr from "@/assets/charul-upi-qr.png.asset.json";
-import workshopVisual from "@/assets/orbis-workshop-visual.png.asset.json";
+import orbisLogo from "@/assets/orbis-logo-aurora.png.asset.json";
 
 const PAY_URL = "https://razorpay.me/@charulbhati";
 
@@ -56,8 +56,8 @@ function Index() {
       <main>
         {/* Hero */}
         <section className="relative orbis-glow">
-          <div className="pointer-events-none absolute right-[-4rem] top-12 z-0 hidden w-[min(52vw,660px)] lg:block">
-            <img src={workshopVisual.url} alt="" className="block h-auto w-full" />
+          <div className="orbis-aurora pointer-events-none absolute right-0 top-8 z-0 hidden w-[min(42vw,500px)] lg:block">
+            <img src={orbisLogo.url} alt="" className="block aspect-square h-auto w-full object-contain" />
           </div>
           <div className="relative z-10 mx-auto max-w-workshop px-6 pb-16 pt-20 md:pb-24 md:pt-28 lg:pb-28">
             <Eyebrow>Workshop 01 / Live online</Eyebrow>
@@ -77,8 +77,8 @@ function Index() {
               </p>
             </div>
           </div>
-          <div className="relative left-1/2 z-10 w-[calc(100%+3rem)] -translate-x-1/2 lg:hidden">
-            <img src={workshopVisual.url} alt="Studio Orbis workshop artwork for UX and vibe coding with Cursor" className="block h-auto w-full" />
+          <div className="orbis-aurora relative z-10 mx-auto -mt-2 w-full max-w-[390px] lg:hidden">
+            <img src={orbisLogo.url} alt="Studio Orbis glowing geometric logo" className="block aspect-square h-auto w-full object-contain" />
           </div>
           <div className="border-y border-border">
             <dl className="mx-auto grid max-w-workshop grid-cols-2 gap-px bg-border md:grid-cols-4">

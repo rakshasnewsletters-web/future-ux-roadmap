@@ -73,6 +73,27 @@
 
 @utility max-w-workshop { max-width: var(--spacing-workshop); }
 @utility orbis-glow { background-image: var(--glow); }
+@utility orbis-aurora {
+  position: relative;
+  isolation: isolate;
+}
+.orbis-aurora::before {
+  position: absolute;
+  z-index: -1;
+  inset: -16%;
+  content: "";
+  background:
+    radial-gradient(ellipse at 50% 48%, color-mix(in oklab, var(--primary) 58%, transparent), transparent 54%),
+    radial-gradient(ellipse at 24% 36%, color-mix(in oklab, var(--accent) 42%, transparent), transparent 50%),
+    radial-gradient(ellipse at 80% 66%, color-mix(in oklab, var(--primary) 34%, transparent), transparent 48%);
+  filter: blur(34px);
+  opacity: 0.72;
+  animation: orbis-aurora-drift 9s ease-in-out infinite alternate;
+}
+@keyframes orbis-aurora-drift {
+  from { transform: translate3d(-2%, 1%, 0) scale(0.94); }
+  to { transform: translate3d(2%, -1%, 0) scale(1.06); }
+}
 @utility glass {
   background: color-mix(in oklab, var(--card) 70%, transparent);
   backdrop-filter: blur(16px);
@@ -86,4 +107,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .orbis-aurora::before { animation: none; }
 }
