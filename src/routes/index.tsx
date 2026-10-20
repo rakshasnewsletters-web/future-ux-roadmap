@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import qr from "@/assets/charul-upi-qr.png.asset.json";
+import workshopVisual from "@/assets/orbis-workshop-visual.png.asset.json";
 
 const PAY_URL = "https://razorpay.me/@charulbhati";
 
@@ -55,12 +56,15 @@ function Index() {
       <main>
         {/* Hero */}
         <section className="relative orbis-glow">
-          <div className="mx-auto max-w-workshop px-6 pb-24 pt-20 md:pt-28">
+          <div className="pointer-events-none absolute right-[-3rem] top-12 z-0 hidden w-[min(62vw,850px)] lg:block">
+            <img src={workshopVisual.url} alt="" className="block h-auto w-full" />
+          </div>
+          <div className="relative z-10 mx-auto max-w-workshop px-6 pb-16 pt-20 md:pb-24 md:pt-28 lg:pb-28">
             <Eyebrow>Workshop 01 / Live online</Eyebrow>
-            <h1 className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
+            <h1 className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl lg:max-w-[58%]">
               UX Design in the <span className="text-primary">Age of AI.</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground lg:max-w-[52%]">
               Understand where design is heading, how top companies hire, and how to build a portfolio that proves your thinking.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -72,6 +76,9 @@ function Index() {
                 ✦ Don't fear the AI wave. <span className="italic text-muted-foreground">Learn to grow with it.</span>
               </p>
             </div>
+          </div>
+          <div className="relative left-1/2 z-10 w-[calc(100%+3rem)] -translate-x-1/2 lg:hidden">
+            <img src={workshopVisual.url} alt="Studio Orbis workshop artwork for UX and vibe coding with Cursor" className="block h-auto w-full" />
           </div>
           <div className="border-y border-border">
             <dl className="mx-auto grid max-w-workshop grid-cols-2 gap-px bg-border md:grid-cols-4">
