@@ -56,7 +56,7 @@ function Index() {
       <main>
         {/* Hero */}
         <section className="relative orbis-glow">
-          <div className="pointer-events-none absolute right-[-3rem] top-12 z-0 hidden w-[min(62vw,850px)] lg:block">
+          <div className="pointer-events-none absolute right-[-4rem] top-12 z-0 hidden w-[min(52vw,660px)] lg:block">
             <img src={workshopVisual.url} alt="" className="block h-auto w-full" />
           </div>
           <div className="relative z-10 mx-auto max-w-workshop px-6 pb-16 pt-20 md:pb-24 md:pt-28 lg:pb-28">
