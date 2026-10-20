@@ -1,199 +1,185 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDownRight, ArrowRight, MessageCircle } from "lucide-react";
-import workshopBoard from "../assets/workshop-board.jpg";
+import qr from "@/assets/charul-upi-qr.png.asset.json";
+
+const PAY_URL = "https://razorpay.me/@charulbhati";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "UX Design in the Age of AI | Live Workshop" },
-      {
-        name: "description",
-        content:
-          "A live, interactive workshop on AI-era UX, hiring at leading companies, and portfolio strategy, hosted by Charul and Rakshita.",
-      },
-      { property: "og:title", content: "UX Design in the Age of AI | Live Workshop" },
-      {
-        property: "og:description",
-        content:
-          "Build a relevant UX career, understand what top teams hire for, and create a portfolio that gets noticed.",
-      },
+      { title: "UX Design in the Age of AI — Studio Orbis" },
+      { name: "description", content: "A live Studio Orbis workshop on the AI-era UX role, hiring at top companies and portfolio strategy." },
+      { property: "og:title", content: "UX Design in the Age of AI — Studio Orbis" },
+      { property: "og:description", content: "Live online workshop: AI-era UX, hiring insights and a real portfolio framework." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: WorkshopPage,
+  component: Index,
 });
 
-const outcomes = [
-  {
-    title: "A clear view of design’s future",
-    copy: "Understand what AI is changing, what remains distinctly human, and where to focus next.",
-  },
-  {
-    title: "Inside-the-room hiring insight",
-    copy: "Learn what large startups and MNC design teams actually evaluate—and which common mistakes hold candidates back.",
-  },
-  {
-    title: "A stronger portfolio framework",
-    copy: "Structure case studies to show judgment, impact, and AI-era relevance instead of relying on generic polish.",
-  },
+const modules = [
+  { n: "01", t: "The UX role in the AI era", d: "How the designer's job is evolving — without the fear.", m: "15–20 min" },
+  { n: "02", t: "Hiring at top companies", d: "Inside insights on how big startups and MNCs hire designers.", m: "15–20 min" },
+  { n: "03", t: "Portfolio strategy", d: "A real framework to make your portfolio prove your thinking.", m: "15–20 min" },
+  { n: "04", t: "Live Q&A", d: "Bring your questions — portfolios, careers, AI tools.", m: "30 min" },
 ];
 
-function WorkshopPage() {
+const facts = [
+  { k: "Sat, 3 Oct", v: "Proposed date" },
+  { k: "90 minutes", v: "60 min + 30 min Q&A" },
+  { k: "Online", v: "Zoom / Google Meet" },
+  { k: "Beginner → Lead", v: "UX designers" },
+];
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return <p className="font-display text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">{children}</p>;
+}
+
+function Index() {
   return (
-    <main className="min-h-screen bg-background font-body text-foreground selection:bg-accent/30">
-      <nav aria-label="Main navigation" className="w-full pt-7 pb-4 md:pt-9">
-        <div className="mx-auto flex max-w-workshop items-end justify-between px-5 md:px-8">
-          <a href="#top" className="flex flex-col" aria-label="Louve Studio workshop home">
-            <span className="font-display text-xl font-semibold uppercase md:text-2xl">AI Workshop Series</span>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:text-xs">Workshop Series</span>
+    <div className="min-h-screen overflow-x-hidden">
+      <header className="border-b border-border">
+        <nav className="mx-auto flex max-w-workshop items-center justify-between gap-6 px-6 py-5">
+          <a href="#" className="flex items-baseline gap-3">
+            <span className="font-display text-lg font-semibold tracking-[0.35em]">ORBIS</span>
+            <span className="hidden text-[10px] uppercase tracking-[0.35em] text-muted-foreground sm:inline">Studio</span>
           </a>
-          <div className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.14em] sm:flex">
-            <a className="transition-colors hover:text-primary" href="#syllabus">Syllabus</a>
-            <a className="transition-colors hover:text-primary" href="#outcomes">Outcomes</a>
-            <a className="text-accent transition-opacity hover:opacity-70" href="#register">Register interest</a>
+          <div className="hidden gap-10 text-sm text-muted-foreground md:flex">
+            <a href="#learn" className="hover:text-foreground">What you'll learn</a>
+            <a href="#ticket" className="hover:text-foreground">Ticket</a>
           </div>
-        </div>
-      </nav>
+          <a href="#ticket" className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground">Reserve your spot ↗</a>
+        </nav>
+      </header>
 
-      <section id="top" className="py-12 md:py-20">
-        <div className="mx-auto max-w-workshop px-5 md:px-8">
-          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-8">
-            <div className="lg:col-span-8">
-              <div className="sticker-tilt-left mb-7 inline-block bg-accent px-3 py-1.5 text-accent-foreground">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em]">Proposed: Saturday, October 3 · 90 minutes</span>
-              </div>
-              <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">Live, practical, interactive</p>
-              <h1 className="mb-8 max-w-4xl text-balance font-display text-5xl font-medium leading-[0.94] md:text-7xl lg:text-8xl">
-                UX Design in the Age of AI
-              </h1>
-              <p className="mb-10 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-                Build a career that stays relevant. Learn what leading teams look for and how to make your portfolio prove it.
+      <main>
+        {/* Hero */}
+        <section className="relative orbis-glow">
+          <div className="mx-auto max-w-workshop px-6 pb-24 pt-20 md:pt-28">
+            <Eyebrow>Workshop 01 / Live online</Eyebrow>
+            <h1 className="mt-8 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
+              UX Design in the <span className="text-primary">Age of AI.</span>
+            </h1>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Understand where design is heading, how top companies hire, and how to build a portfolio that proves your thinking.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href="#ticket" className="inline-flex items-center justify-between gap-6 rounded-full bg-primary py-2 pl-7 pr-2 font-medium text-primary-foreground">
+                Save my seat
+                <span className="grid size-10 place-items-center rounded-full bg-primary-foreground text-primary">→</span>
+              </a>
+              <p className="glass rounded-full border border-border px-6 py-3 text-sm">
+                ✦ Don't fear the AI wave. <span className="italic text-muted-foreground">Learn to grow with it.</span>
               </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a className="group inline-flex h-12 items-center justify-center rounded-sm bg-primary px-5 text-sm font-medium uppercase tracking-[0.08em] text-primary-foreground transition-transform active:scale-[0.98]" href="#register">
-                  Register interest
-                  <ArrowRight className="ml-3 size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </a>
-                <div className="inline-flex h-12 items-center gap-3 border border-border px-4 text-xs font-medium uppercase tracking-[0.08em]">
-                  <span className="size-2 rounded-full bg-accent" />
-                  Zoom / Google Meet
-                </div>
-              </div>
             </div>
-
-            <aside className="flex flex-col gap-5 lg:col-span-4" aria-label="Workshop hosts and format">
-              <div className="sticker-tilt-right bg-primary p-6 text-primary-foreground md:p-7">
-                <span className="mb-5 block text-xs uppercase tracking-[0.18em] opacity-70">Hosted by</span>
-                <div className="divide-y divide-primary-foreground/20">
-                  <div className="flex items-center gap-4 pb-5">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-full border border-primary-foreground/30 font-display text-sm">C</span>
-                    <div><p className="font-display text-lg font-medium">Charul</p></div>
-                  </div>
-                  <div className="flex items-center gap-4 pt-5">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-full border border-primary-foreground/30 font-display text-sm">R</span>
-                    <div><p className="font-display text-lg font-medium">Rakshita</p></div>
-                  </div>
+          </div>
+          <div className="border-y border-border">
+            <dl className="mx-auto grid max-w-workshop grid-cols-2 gap-px bg-border md:grid-cols-4">
+              {facts.map((f) => (
+                <div key={f.k} className="bg-background px-6 py-6">
+                  <dt className="font-display text-sm font-medium uppercase tracking-[0.15em]">{f.k}</dt>
+                  <dd className="mt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">{f.v}</dd>
                 </div>
-              </div>
-              <div className="border border-border p-6">
-                <span className="mb-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">Format</span>
-                <p className="text-sm leading-relaxed">One focused hour of teaching, followed by 30 minutes of open, live Q&amp;A.</p>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section id="syllabus" className="bg-primary py-16 text-primary-foreground md:py-20">
-        <div className="mx-auto max-w-workshop px-5 md:px-8">
-          <header className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end md:mb-12">
-            <div><p className="mb-2 text-xs uppercase tracking-[0.2em] opacity-60">The hour, mapped</p><h2 className="font-display text-4xl font-medium md:text-5xl">Workshop board</h2></div>
-            <span className="w-fit border-b border-primary-foreground/40 pb-1 text-xs uppercase tracking-[0.16em]">60 min session + 30 min Q&amp;A</span>
-          </header>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <article className="workshop-card relative overflow-hidden bg-background p-7 text-foreground md:col-span-2 md:p-8">
-              <span className="absolute right-5 top-4 font-display text-xs opacity-30">01</span>
-              <span className="mb-7 inline-block bg-primary/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">15–20 min</span>
-              <h3 className="mb-4 max-w-md font-display text-2xl font-medium">UX design in the age of AI</h3>
-              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">What is changing, what is not, and how to become more valuable by strengthening judgment, context, and human-centered thinking.</p>
-            </article>
-            <article className="workshop-card relative bg-accent p-7 text-accent-foreground md:p-8">
-              <span className="absolute right-5 top-4 font-display text-xs opacity-40">02</span>
-              <span className="mb-7 inline-block bg-accent-foreground/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]">15–20 min</span>
-              <h3 className="mb-4 font-display text-2xl font-medium">Getting hired at top companies</h3>
-              <p className="text-sm leading-relaxed opacity-85">What teams at ambitious startups and MNCs look for, how the hiring process works, and how candidates stand out.</p>
-            </article>
-            <article className="workshop-card relative bg-foreground p-7 text-background md:p-8">
-              <span className="absolute right-5 top-4 font-display text-xs opacity-40">03</span>
-              <span className="mb-7 inline-block bg-background/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]">15–20 min</span>
-              <h3 className="mb-4 font-display text-2xl font-medium">Portfolio strategy</h3>
-              <p className="text-sm leading-relaxed opacity-80">Build and structure a portfolio that communicates AI-era relevance and earns attention from senior hiring managers.</p>
-            </article>
-            <article className="flex flex-col items-start justify-between gap-8 border border-primary-foreground/25 p-7 md:col-span-4 md:flex-row md:items-center md:p-8">
-              <div className="flex items-center gap-5">
-                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-accent"><MessageCircle className="size-5" aria-hidden="true" /></span>
-                <div><h3 className="font-display text-2xl font-medium">Live Q&amp;A</h3><p className="text-xs uppercase tracking-[0.16em] opacity-60">30 minutes · open floor</p></div>
-              </div>
-              <p className="max-w-lg text-sm italic leading-relaxed opacity-75 md:text-right">Bring the career and portfolio questions you actually need answered—not the ones that fit neatly on a slide.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="outcomes" className="py-20 md:py-24">
-        <div className="mx-auto grid max-w-workshop gap-12 px-5 md:grid-cols-12 md:px-8">
-          <div className="md:col-span-5">
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-primary">Leave with something useful</p>
-            <h2 className="mb-7 max-w-md text-balance font-display text-4xl font-medium leading-tight md:text-5xl">Clarity, not AI anxiety.</h2>
-            <img className="aspect-[4/3] w-full object-cover" src={workshopBoard} alt="A tactile studio board of UX flow diagrams and interface notes" loading="lazy" width={1200} height={912} />
-          </div>
-          <div className="self-end md:col-span-7 md:pl-8">
-            <div className="divide-y divide-border border-y border-border">
-              {outcomes.map((outcome, index) => (
-                <article className="group grid gap-4 py-7 sm:grid-cols-[2rem_1fr]" key={outcome.title}>
-                  <span className="font-display text-sm text-accent">0{index + 1}</span>
-                  <div><h3 className="mb-2 font-display text-xl font-medium">{outcome.title}</h3><p className="max-w-xl text-sm leading-relaxed text-muted-foreground">{outcome.copy}</p></div>
-                </article>
               ))}
-            </div>
+            </dl>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="border-y border-border py-16">
-        <div className="mx-auto max-w-workshop px-5 md:px-8">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div><span className="mb-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">For</span><p className="font-display text-xl">Beginner to mid-level UX designers</p></div>
-            <div><span className="mb-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">Also for</span><p className="font-display text-xl">Design leads preparing for larger roles</p></div>
-            <div><span className="mb-2 block text-xs uppercase tracking-[0.18em] text-muted-foreground">Approach</span><p className="font-display text-xl">Honest, actionable, non-fearful</p></div>
+        {/* Learn */}
+        <section id="learn" className="mx-auto max-w-workshop px-6 py-24 md:py-32">
+          <div className="grid gap-12 md:grid-cols-[1fr_1.4fr] md:gap-20">
+            <div>
+              <Eyebrow>What you'll learn</Eyebrow>
+              <h2 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+                Turn AI into a real advantage in your UX career.
+              </h2>
+            </div>
+            <ol className="divide-y divide-border border-y border-border">
+              {modules.map((m) => (
+                <li key={m.n} className="grid grid-cols-[3rem_1fr_auto] items-start gap-5 py-7">
+                  <span className="grid size-10 place-items-center rounded-full border border-border font-display text-xs">{m.n}</span>
+                  <div>
+                    <h3 className="font-display text-lg font-medium">{m.t}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{m.d}</p>
+                  </div>
+                  <span className="pt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">{m.m}</span>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer id="register" className="py-16 md:py-20">
-        <div className="mx-auto max-w-workshop px-5 md:px-8">
-          <div className="relative overflow-hidden bg-foreground p-8 text-background md:p-14">
-            <div className="relative z-10 grid items-end gap-10 md:grid-cols-12">
-              <div className="md:col-span-8">
-                <p className="mb-4 text-xs uppercase tracking-[0.2em] text-accent">Registration opening soon</p>
-                <h2 className="mb-5 max-w-2xl text-balance font-display text-4xl font-medium md:text-6xl">Make your next design move with clarity.</h2>
-                <p className="max-w-xl text-sm leading-relaxed text-background/65">The final time, platform, entry details, and compensation terms are still being confirmed.</p>
+        {/* Outcomes */}
+        <section className="border-t border-border">
+          <div className="mx-auto grid max-w-workshop gap-6 px-6 py-24 md:grid-cols-3">
+            {[
+              ["A clear view", "of design's future with AI — calm, not fearful."],
+              ["Inside insights", "on hiring, from IIT Roorkee to Razorpay to Stripe."],
+              ["A real framework", "for a portfolio that gets you shortlisted."],
+            ].map(([a, b]) => (
+              <div key={a} className="rounded-2xl border border-border bg-card p-8">
+                <p className="font-display text-xl font-medium text-primary">{a}</p>
+                <p className="mt-3 leading-relaxed text-muted-foreground">{b}</p>
               </div>
-              <div className="md:col-span-4 md:text-right">
-                <span className="inline-flex min-h-13 items-center justify-center rounded-sm bg-accent px-6 text-sm font-medium uppercase tracking-[0.08em] text-accent-foreground">
-                  Registration details coming soon <ArrowDownRight className="ml-3 size-4" aria-hidden="true" />
-                </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Ticket */}
+        <section id="ticket" className="orbis-glow border-t border-border">
+          <div className="mx-auto max-w-workshop px-6 py-24 md:py-32">
+            <div className="text-center">
+              <Eyebrow>Your ticket</Eyebrow>
+              <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-5xl">Scan, pay, you're in.</h2>
+            </div>
+
+            <div className="mt-16 overflow-hidden rounded-3xl bg-ticket text-ticket-foreground shadow-2xl lg:grid lg:grid-cols-[1.1fr_1fr_0.8fr]">
+              <div className="flex flex-col justify-between gap-10 p-8 md:p-10">
+                <div>
+                  <p className="font-display text-sm font-semibold tracking-[0.3em]">STUDIO ORBIS</p>
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ticket-muted">AI Workshop Series</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.25em] text-ticket-line">Live · Practical · Interactive</p>
+                  <h3 className="mt-3 font-display text-4xl font-semibold leading-[1.05] tracking-tight">UX Design in the Age of AI</h3>
+                </div>
+                <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.15em]">
+                  <span className="rounded-full border border-ticket-line px-4 py-2">Sat, Oct 3 (proposed)</span>
+                  <span className="rounded-full border border-ticket-line px-4 py-2">90 minutes</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center gap-6 border-t border-dashed border-ticket-line p-8 md:p-10 lg:border-l lg:border-t-0">
+                <p className="text-xs uppercase tracking-[0.25em]">Scan this UPI QR code</p>
+                <img src={qr.url} alt="Charul Bhati UPI QR code, 9358344725@ptsbi" className="w-full max-w-[260px] rounded-xl" />
+                <a href={PAY_URL} target="_blank" rel="noreferrer" className="w-full max-w-[260px] rounded-full bg-ticket-foreground px-6 py-3 text-center text-sm font-medium text-ticket">
+                  Or pay on Razorpay ↗
+                </a>
+              </div>
+
+              <div className="flex flex-col justify-between gap-8 border-t-2 border-dashed border-ticket-line bg-ticket-stub p-8 md:p-10 lg:border-l-2 lg:border-t-0">
+                <div className="flex justify-between text-xs uppercase tracking-[0.25em]">
+                  <span>Workshop ticket</span><span className="font-semibold">001</span>
+                </div>
+                <ul className="space-y-4 border-y border-ticket-line/40 py-6 text-sm">
+                  <li>Sat, October 3 · proposed</li>
+                  <li>60 min session + 30 min Q&A</li>
+                  <li>Online · Zoom / Google Meet</li>
+                </ul>
+                <div aria-hidden className="h-10 w-full" style={{ background: "repeating-linear-gradient(90deg, var(--ticket-foreground) 0 2px, transparent 2px 5px, var(--ticket-foreground) 5px 6px, transparent 6px 9px)" }} />
               </div>
             </div>
-            <div className="absolute -right-10 -top-10 size-40 rotate-12 border-[20px] border-primary opacity-50" aria-hidden="true" />
+            <p className="mt-6 text-center text-sm text-muted-foreground">After paying, joining details will be shared with you.</p>
           </div>
-          <div className="mt-8 flex flex-col justify-between gap-3 text-xs uppercase tracking-[0.14em] text-muted-foreground sm:flex-row">
-            <p>Louve Studio × Rakshita</p><p>UX Design in the Age of AI</p>
-          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border">
+        <div className="mx-auto flex max-w-workshop flex-col justify-between gap-4 px-6 py-10 text-sm text-muted-foreground sm:flex-row">
+          <span className="font-display tracking-[0.3em] text-foreground">STUDIO ORBIS</span>
+          <span>AI Workshop Series · 2026</span>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
