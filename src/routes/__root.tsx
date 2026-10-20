@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "UX Design in the Age of AI" },
       { name: "description", content: "A live workshop for UX designers building relevant careers in the age of AI." },
-      { name: "author", content: "Louve Studio" },
+      { name: "author", content: "Studio Orbis" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },

@@ -74,9 +74,9 @@ function Index() {
             </div>
           </div>
           <div className="border-y border-border">
-            <dl className="mx-auto grid max-w-workshop grid-cols-2 md:grid-cols-4">
-              {facts.map((f, i) => (
-                <div key={f.k} className={`px-6 py-6 ${i % 2 ? "border-l" : ""} ${i > 1 ? "border-t md:border-t-0" : ""} md:${i ? "border-l" : ""} border-border md:border-l-0 md:[&:not(:first-child)]:border-l`}>
+            <dl className="mx-auto grid max-w-workshop grid-cols-2 gap-px bg-border md:grid-cols-4">
+              {facts.map((f) => (
+                <div key={f.k} className="bg-background px-6 py-6">
                   <dt className="font-display text-sm font-medium uppercase tracking-[0.15em]">{f.k}</dt>
                   <dd className="mt-1 text-xs uppercase tracking-[0.15em] text-muted-foreground">{f.v}</dd>
                 </div>
